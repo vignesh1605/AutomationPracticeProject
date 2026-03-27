@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         glue = {"StepDefination"},
         plugin = {"pretty",
                 "html:target/testreports/cucumber-reports.html"},
-        tags = "@TestCase8"
+        tags = "@TestCase9"
 
 )
 

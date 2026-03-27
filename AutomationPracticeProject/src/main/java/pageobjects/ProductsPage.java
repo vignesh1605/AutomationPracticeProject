@@ -2,6 +2,7 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.ConfigPropertyReader;
 
 public class ProductsPage {
     private WebDriver driver;
@@ -44,5 +45,16 @@ public class ProductsPage {
     }
     public boolean productBrandIsAvailable(){
         return driver.findElement(By.xpath("//div[@class='product-information']//child::b[contains(text(),'Brand:')]")).isDisplayed();
+    }
+
+    public void userEnterTheProductName(){
+        String productName = ConfigPropertyReader.getConfigPropertyValues("productName");
+        driver.findElement(By.id("search_product")).sendKeys(productName);
+    }
+    public void userClickTheSearchButton(){
+        driver.findElement(By.id("submit_search")).click();
+    }
+    public boolean getSearchedProductsText(){
+        return driver.findElement(By.xpath("//h2[@class='title text-center']")).isDisplayed();
     }
 }
