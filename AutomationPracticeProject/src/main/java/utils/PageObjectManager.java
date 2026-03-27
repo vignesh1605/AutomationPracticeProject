@@ -4,13 +4,15 @@ import org.openqa.selenium.WebDriver;
 import pageobjects.ContactUsPage;
 import pageobjects.Homepage;
 import pageobjects.LoginSignupPage;
+import pageobjects.ProductsPage;
 
 public class PageObjectManager {
 
-    WebDriver driver;
-    Homepage homepage;
-    LoginSignupPage loginSignupPage;
-    ContactUsPage  contactUsPage;
+    public WebDriver driver;
+    public Homepage homepage;
+    public LoginSignupPage loginSignupPage;
+    public ContactUsPage  contactUsPage;
+    public ProductsPage productsPage;
 
     public PageObjectManager(WebDriver driver) {
          this.driver = driver;
@@ -33,5 +35,11 @@ public class PageObjectManager {
     public ContactUsPage getContactUsPage(){
         contactUsPage = new ContactUsPage(driver);
         return contactUsPage;
+    }
+
+    public ProductsPage getProductsPage(){
+        productsPage = new ProductsPage(driver);
+        return productsPage;
+
     }
 }

@@ -88,6 +88,15 @@ Feature: validating the automation exercise site
 
   @TestCase8 @VerifyAllProductsAndProductDetailsPage
     Scenario: Verify All Products And Product Details Page
+#      Given user navigates to the test environment
+      Then Verify that home page is visible successfully
+      When Click on Products button
+      Then Verify user is navigated to ALL PRODUCTS page successfully
+      And The products list is visible
+      When Click on View Product of first product
+      And User is landed to product detail page
+      Then Verify that details are visible product name category price availability condition brand
+
 
 
 

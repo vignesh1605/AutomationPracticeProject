@@ -34,4 +34,9 @@ public class Homepage {
 
     }
 
+    public void userClicksTheProductsButton(){
+
+        driver.findElement(By.xpath("//div[@class='shop-menu pull-right']//descendant::a[text()=' Products']")).click();
+    }
+
 }

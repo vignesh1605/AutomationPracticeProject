@@ -1,6 +1,7 @@
 package StepDefination;
 
 import io.cucumber.java.PendingException;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,6 +13,7 @@ import utils.TestContext;
 public class PracticeStpes {
 
     private TestContext testContext;
+    int productId;
     public PracticeStpes(TestContext testContext){
         this.testContext = testContext;
     }
@@ -276,5 +278,58 @@ public class PracticeStpes {
 
         boolean isTestCasesPageVisible= testContext.pageObjectManager.getHomepage().getTestCasesPageIsVisible();
         Assert.assertTrue(isTestCasesPageVisible);
+    }
+
+    @When("Click on Products button")
+    public void clickOnProductsButton() {
+        testContext.pageObjectManager.getHomepage().userClicksTheProductsButton();
+    }
+
+    @Then("Verify user is navigated to ALL PRODUCTS page successfully")
+    public void verifyUserIsNavigatedToALLPRODUCTSPageSuccessfully() {
+        String expectedPageTitle = "Automation Exercise - All Products";
+        String actualPageTitle = testContext.pageObjectManager.getProductsPage().getProductsPageTitle();
+        Assert.assertEquals(expectedPageTitle, actualPageTitle);
+
+    }
+
+    @And("The products list is visible")
+    public void theProductsListIsVisible() {
+        boolean flag = testContext.pageObjectManager.getProductsPage().getProductsListVisible();
+        Assert.assertTrue(flag);
+    }
+
+    @When("Click on View Product of first product")
+    public void clickOnViewProductOfFirstProduct() {
+
+        productId = Integer.parseInt(ConfigPropertyReader.getConfigPropertyValues("productId"));
+        testContext.pageObjectManager.getProductsPage().clickViewProductForTheFirstProduct(productId);
+
+    }
+
+    @And("User is landed to product detail page")
+    public void userIsLandedToProductDetailPage() {
+        String expectedCurrentProductUrl = "https://automationexercise.com/product_details/"+productId;
+        String actualCurrentProductUrl = testContext.pageObjectManager.getProductsPage().getCurrentUrlForSelectedProduct();
+        Assert.assertEquals(expectedCurrentProductUrl, actualCurrentProductUrl);
+    }
+
+    @Then("Verify that details are visible product name category price availability condition brand")
+    public void verifyThatDetailsAreVisibleProductNameCategoryPriceAvailabilityConditionBrand() {
+
+
+        boolean isProductNameVisible = testContext.pageObjectManager.getProductsPage().productNameIsAvailable();
+        boolean isProductCategoryVisible = testContext.pageObjectManager.getProductsPage().productCategoryIsAvailable();
+        boolean isProductPriceAvailable = testContext.pageObjectManager.getProductsPage().productPriceIsAvailable();
+        boolean isProductAvailabilityAvailable = testContext.pageObjectManager.getProductsPage().productAvailabilityIsAvailable();
+        boolean isProductConditionAvailable = testContext.pageObjectManager.getProductsPage().productConditionIsAvailable();
+        boolean isProductBrandAvailable = testContext.pageObjectManager.getProductsPage().productBrandIsAvailable();
+
+        Assert.assertTrue(isProductNameVisible);
+        Assert.assertTrue(isProductCategoryVisible);
+        Assert.assertTrue(isProductPriceAvailable);
+        Assert.assertTrue(isProductAvailabilityAvailable);
+        Assert.assertTrue(isProductConditionAvailable);
+        Assert.assertTrue(isProductBrandAvailable);
     }
 }
