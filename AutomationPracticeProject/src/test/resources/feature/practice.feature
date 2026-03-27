@@ -86,6 +86,9 @@ Feature: validating the automation exercise site
       And Click on Test Cases button
       Then Verify user is navigated to test cases page successfully
 
+  @TestCase8 @VerifyAllProductsAndProductDetailsPage
+    Scenario: Verify All Products And Product Details Page
+
 
 
 

@@ -2,6 +2,7 @@ package StepDefination;
 
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -10,15 +11,14 @@ import utils.TestContext;
 
 public class PracticeStpes {
 
-    TestContext testContext;
+    private TestContext testContext;
     public PracticeStpes(TestContext testContext){
         this.testContext = testContext;
     }
 
 //    @Given("user navigates to the test environment")
 //    public void userNavigatesToTheTestEnvironment(){
-//
-//
+//        testContext.getDriver();
 //    }
 
     @Then("Verify that home page is visible successfully")

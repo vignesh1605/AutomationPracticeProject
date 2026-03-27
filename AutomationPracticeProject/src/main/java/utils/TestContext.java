@@ -15,4 +15,24 @@ public class TestContext {
         pageObjectManager = new PageObjectManager(driver);
 
     }
+
+    public void initializeDriver() {
+        driver = driverLaunch.getDriverLaunch();
+        pageObjectManager = new PageObjectManager(driver);
+    }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public PageObjectManager getPageObjectManager() {
+        return pageObjectManager;
+    }
+
+    public void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
 }
