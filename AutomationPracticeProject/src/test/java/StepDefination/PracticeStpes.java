@@ -317,7 +317,6 @@ public class PracticeStpes {
     @Then("Verify that details are visible product name category price availability condition brand")
     public void verifyThatDetailsAreVisibleProductNameCategoryPriceAvailabilityConditionBrand() {
 
-
         boolean isProductNameVisible = testContext.pageObjectManager.getProductsPage().productNameIsAvailable();
         boolean isProductCategoryVisible = testContext.pageObjectManager.getProductsPage().productCategoryIsAvailable();
         boolean isProductPriceAvailable = testContext.pageObjectManager.getProductsPage().productPriceIsAvailable();
@@ -331,5 +330,16 @@ public class PracticeStpes {
         Assert.assertTrue(isProductAvailabilityAvailable);
         Assert.assertTrue(isProductConditionAvailable);
         Assert.assertTrue(isProductBrandAvailable);
+    }
+
+    @When("Enter product name in search input and click search button")
+    public void enterProductNameInSearchInputAndClickSearchButton() {
+        testContext.pageObjectManager.productsPage.userEnterTheProductName();
+        testContext.pageObjectManager.productsPage.userClickTheSearchButton();
+    }
+
+    @Then("Verify SEARCHED PRODUCTS is visible")
+    public void verifySEARCHEDPRODUCTSIsVisible() {
+        Assert.assertTrue(testContext.pageObjectManager.productsPage.getSearchedProductsText());
     }
 }

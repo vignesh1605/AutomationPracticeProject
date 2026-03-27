@@ -86,7 +86,7 @@ Feature: validating the automation exercise site
       And Click on Test Cases button
       Then Verify user is navigated to test cases page successfully
 
-  @TestCase8 @VerifyAllProductsAndProductDetailsPage
+  @TestCase8 @VerifyAllProductsAndProductDetailsPage  @RegressionTest
     Scenario: Verify All Products And Product Details Page
 #      Given user navigates to the test environment
       Then Verify that home page is visible successfully
@@ -96,6 +96,17 @@ Feature: validating the automation exercise site
       When Click on View Product of first product
       And User is landed to product detail page
       Then Verify that details are visible product name category price availability condition brand
+
+  @TestCase9  @SearchProduct  @RegressionTest
+    Scenario: Search Product
+#      Given user navigates to the test environment
+      Then Verify that home page is visible successfully
+      When Click on Products button
+      Then Verify user is navigated to ALL PRODUCTS page successfully
+      When Enter product name in search input and click search button
+      Then Verify SEARCHED PRODUCTS is visible
+
+
 
 
 
