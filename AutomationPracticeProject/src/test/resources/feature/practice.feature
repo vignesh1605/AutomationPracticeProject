@@ -99,7 +99,7 @@ Feature: validating the automation exercise site
 
   @TestCase9  @SearchProduct  @RegressionTest
     Scenario: Search Product
-      Given user navigates to the test environment
+#      Given user navigates to the test environment
       Then Verify that home page is visible successfully
       When Click on Products button
       Then Verify user is navigated to ALL PRODUCTS page successfully
