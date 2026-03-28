@@ -342,4 +342,22 @@ public class PracticeStpes {
     public void verifySEARCHEDPRODUCTSIsVisible() {
         Assert.assertTrue(testContext.pageObjectManager.productsPage.getSearchedProductsText());
     }
+
+    @Then("Verify text SUBSCRIPTION")
+    public void verifyTextSUBSCRIPTION() {
+        Assert.assertTrue(testContext.pageObjectManager.getHomepage().userVerifyTheSubscriptionText());
+    }
+
+    @When("Enter email address in input and click arrow button")
+    public void enterEmailAddressInInputAndClickArrowButton() {
+
+        testContext.pageObjectManager.getHomepage().userEntersTheSubscriptionEmailAdress();
+        testContext.pageObjectManager.getHomepage().userClicksTheSubscriptionArrowButton();
+
+    }
+
+    @Then("Verify success message You have been successfully subscribed is visible")
+    public void verifySuccessMessageYouHaveBeenSuccessfullySubscribedIsVisible() {
+        Assert.assertTrue(testContext.pageObjectManager.getHomepage().userVerifyTheSubscriptionSuccessMessageIsVisible());
+    }
 }

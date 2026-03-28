@@ -106,6 +106,13 @@ Feature: validating the automation exercise site
       When Enter product name in search input and click search button
       Then Verify SEARCHED PRODUCTS is visible
 
+  @TestCase10 @VerifySubscriptionInHomePage @RegressionTest
+    Scenario: Verify Subscription in home page
+#      Given user navigates to the test environment
+      Then Verify that home page is visible successfully
+      Then Verify text SUBSCRIPTION
+      When Enter email address in input and click arrow button
+      Then Verify success message You have been successfully subscribed is visible
 
 
 
