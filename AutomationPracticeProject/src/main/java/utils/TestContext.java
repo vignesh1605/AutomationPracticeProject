@@ -33,6 +33,7 @@ public class TestContext {
         if (driver != null) {
             driver.quit();
         }
+        System.out.println("test fork");
     }
 
 }
