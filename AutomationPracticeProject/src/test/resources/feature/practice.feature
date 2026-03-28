@@ -110,17 +110,17 @@ Feature: validating the automation exercise site
     Scenario: Verify Subscription in home page
 #      Given user navigates to the test environment
       Then Verify that home page is visible successfully
+#      And Scroll down to footer
       Then Verify text SUBSCRIPTION
       When Enter email address in input and click arrow button
       Then Verify success message You have been successfully subscribed is visible
 
-
-
-
-
-
-
-
-
-
-
+  @TestCase11 @VerifySubscriptionInCartPage
+    Scenario:
+#      Given user navigates to the test environment
+      Then Verify that home page is visible successfully
+      When Click Cart button
+#      And Scroll down to footer
+      Then Verify text SUBSCRIPTION in Cart Page
+      When Enter email address in input and click arrow button in Cart Page
+      Then Verify success message You have been successfully subscribed is visible in Cart Page
