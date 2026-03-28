@@ -55,5 +55,8 @@ public class Homepage {
     public boolean userVerifyTheSubscriptionSuccessMessageIsVisible(){
         return driver.findElement(By.id("success-subscribe")).isDisplayed();
     }
+    public void userClicksTheCartButton(){
+        driver.findElement(By.xpath("//div[@class='shop-menu pull-right']//descendant::a[@href='/view_cart']")).click();
+    }
 
 }

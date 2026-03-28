@@ -350,14 +350,33 @@ public class PracticeStpes {
 
     @When("Enter email address in input and click arrow button")
     public void enterEmailAddressInInputAndClickArrowButton() {
-
         testContext.pageObjectManager.getHomepage().userEntersTheSubscriptionEmailAdress();
         testContext.pageObjectManager.getHomepage().userClicksTheSubscriptionArrowButton();
-
     }
 
     @Then("Verify success message You have been successfully subscribed is visible")
     public void verifySuccessMessageYouHaveBeenSuccessfullySubscribedIsVisible() {
         Assert.assertTrue(testContext.pageObjectManager.getHomepage().userVerifyTheSubscriptionSuccessMessageIsVisible());
+    }
+
+    @When("Click Cart button")
+    public void clickCartButton() {
+        testContext.pageObjectManager.getHomepage().userClicksTheCartButton();
+    }
+
+    @Then("Verify text SUBSCRIPTION in Cart Page")
+    public void verifyTextSUBSCRIPTIONInCartPage() {
+        Assert.assertTrue(testContext.pageObjectManager.getCartPage().userVerifyTheSubscriptionText());
+    }
+
+    @When("Enter email address in input and click arrow button in Cart Page")
+    public void enterEmailAddressInInputAndClickArrowButtonInCartPage() {
+        testContext.pageObjectManager.getCartPage().userEntersTheSubscriptionEmailAdress();
+        testContext.pageObjectManager.getCartPage().userClicksTheSubscriptionArrowButton();
+    }
+
+    @Then("Verify success message You have been successfully subscribed is visible in Cart Page")
+    public void verifySuccessMessageYouHaveBeenSuccessfullySubscribedIsVisibleInCartPage() {
+        Assert.assertTrue(testContext.pageObjectManager.getCartPage().userVerifyTheSubscriptionSuccessMessageIsVisible());
     }
 }

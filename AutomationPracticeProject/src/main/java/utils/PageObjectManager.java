@@ -1,10 +1,7 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
-import pageobjects.ContactUsPage;
-import pageobjects.Homepage;
-import pageobjects.LoginSignupPage;
-import pageobjects.ProductsPage;
+import pageobjects.*;
 
 public class PageObjectManager {
 
@@ -13,6 +10,7 @@ public class PageObjectManager {
     public LoginSignupPage loginSignupPage;
     public ContactUsPage  contactUsPage;
     public ProductsPage productsPage;
+    public CartPage cartPage;
 
     public PageObjectManager(WebDriver driver) {
          this.driver = driver;
@@ -40,6 +38,10 @@ public class PageObjectManager {
     public ProductsPage getProductsPage(){
         productsPage = new ProductsPage(driver);
         return productsPage;
+    }
 
+    public CartPage getCartPage(){
+        cartPage = new CartPage(driver);
+        return cartPage;
     }
 }
