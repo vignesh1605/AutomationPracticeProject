@@ -115,8 +115,8 @@ Feature: validating the automation exercise site
       When Enter email address in input and click arrow button
       Then Verify success message You have been successfully subscribed is visible
 
-  @TestCase11 @VerifySubscriptionInCartPage
-    Scenario:
+  @TestCase11 @VerifySubscriptionInCartPage @RegressionTest
+    Scenario: Verify Subscription In Cart Page
 #      Given user navigates to the test environment
       Then Verify that home page is visible successfully
       When Click Cart button
@@ -124,3 +124,15 @@ Feature: validating the automation exercise site
       Then Verify text SUBSCRIPTION in Cart Page
       When Enter email address in input and click arrow button in Cart Page
       Then Verify success message You have been successfully subscribed is visible in Cart Page
+
+  @TestCase12 @AddProductsInCart  @RegressionTest
+    Scenario: Add Products In Cart
+#      Given user navigates to the test environment
+      Then Verify that home page is visible successfully
+      When Click on Products button
+      And Hover over first product and click Add to cart
+      And Click Continue Shopping button
+      And Hover over second product and click Add to cart
+      And Click View Cart button
+      Then Verify both products are added to Cart
+      Then Verify their prices quantity and total price
