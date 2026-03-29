@@ -1,9 +1,7 @@
 package StepDefination;
 
 import io.cucumber.java.PendingException;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -288,14 +286,14 @@ public class PracticeStpes {
     @Then("Verify user is navigated to ALL PRODUCTS page successfully")
     public void verifyUserIsNavigatedToALLPRODUCTSPageSuccessfully() {
         String expectedPageTitle = "Automation Exercise - All Products";
-        String actualPageTitle = testContext.pageObjectManager.getProductsPage().getProductsPageTitle();
+        String actualPageTitle = testContext.pageObjectManager.getProductsPage().userGetProductsPageTitle();
         Assert.assertEquals(expectedPageTitle, actualPageTitle);
 
     }
 
     @And("The products list is visible")
     public void theProductsListIsVisible() {
-        boolean flag = testContext.pageObjectManager.getProductsPage().getProductsListVisible();
+        boolean flag = testContext.pageObjectManager.getProductsPage().userGetProductsListVisible();
         Assert.assertTrue(flag);
     }
 
@@ -303,26 +301,26 @@ public class PracticeStpes {
     public void clickOnViewProductOfFirstProduct() {
 
         productId = Integer.parseInt(ConfigPropertyReader.getConfigPropertyValues("productId"));
-        testContext.pageObjectManager.getProductsPage().clickViewProductForTheFirstProduct(productId);
+        testContext.pageObjectManager.getProductsPage().userClicksTheViewProductForTheFirstProduct(productId);
 
     }
 
     @And("User is landed to product detail page")
     public void userIsLandedToProductDetailPage() {
         String expectedCurrentProductUrl = "https://automationexercise.com/product_details/"+productId;
-        String actualCurrentProductUrl = testContext.pageObjectManager.getProductsPage().getCurrentUrlForSelectedProduct();
+        String actualCurrentProductUrl = testContext.pageObjectManager.getProductsPage().userGetTheCurrentUrlForSelectedProduct();
         Assert.assertEquals(expectedCurrentProductUrl, actualCurrentProductUrl);
     }
 
     @Then("Verify that details are visible product name category price availability condition brand")
     public void verifyThatDetailsAreVisibleProductNameCategoryPriceAvailabilityConditionBrand() {
 
-        boolean isProductNameVisible = testContext.pageObjectManager.getProductsPage().productNameIsAvailable();
-        boolean isProductCategoryVisible = testContext.pageObjectManager.getProductsPage().productCategoryIsAvailable();
-        boolean isProductPriceAvailable = testContext.pageObjectManager.getProductsPage().productPriceIsAvailable();
-        boolean isProductAvailabilityAvailable = testContext.pageObjectManager.getProductsPage().productAvailabilityIsAvailable();
-        boolean isProductConditionAvailable = testContext.pageObjectManager.getProductsPage().productConditionIsAvailable();
-        boolean isProductBrandAvailable = testContext.pageObjectManager.getProductsPage().productBrandIsAvailable();
+        boolean isProductNameVisible = testContext.pageObjectManager.getProductsPage().userChecksTheProductNameIsAvailable();
+        boolean isProductCategoryVisible = testContext.pageObjectManager.getProductsPage().userChecksTheProductCategoryIsAvailable();
+        boolean isProductPriceAvailable = testContext.pageObjectManager.getProductsPage().userChecksTheProductPriceIsAvailable();
+        boolean isProductAvailabilityAvailable = testContext.pageObjectManager.getProductsPage().userChecksTheProductAvailabilityIsAvailable();
+        boolean isProductConditionAvailable = testContext.pageObjectManager.getProductsPage().userChecksTheProductConditionIsAvailable();
+        boolean isProductBrandAvailable = testContext.pageObjectManager.getProductsPage().userChecksTheProductBrandIsAvailable();
 
         Assert.assertTrue(isProductNameVisible);
         Assert.assertTrue(isProductCategoryVisible);
@@ -340,7 +338,7 @@ public class PracticeStpes {
 
     @Then("Verify SEARCHED PRODUCTS is visible")
     public void verifySEARCHEDPRODUCTSIsVisible() {
-        Assert.assertTrue(testContext.pageObjectManager.productsPage.getSearchedProductsText());
+        Assert.assertTrue(testContext.pageObjectManager.productsPage.userGetSearchedProductsText());
     }
 
     @Then("Verify text SUBSCRIPTION")
@@ -378,5 +376,38 @@ public class PracticeStpes {
     @Then("Verify success message You have been successfully subscribed is visible in Cart Page")
     public void verifySuccessMessageYouHaveBeenSuccessfullySubscribedIsVisibleInCartPage() {
         Assert.assertTrue(testContext.pageObjectManager.getCartPage().userVerifyTheSubscriptionSuccessMessageIsVisible());
+    }
+
+    @And("Hover over first product and click Add to cart")
+    public void hoverOverFirstProductAndClickAddToCart() {
+        testContext.pageObjectManager.getProductsPage().userHoverTheFirstProductAndClickAddToCart();
+    }
+
+    @And("Click Continue Shopping button")
+    public void clickContinueShoppingButton() {
+        testContext.pageObjectManager.getProductsPage().userClickContinueShoppingButton();
+    }
+
+    @And("Hover over second product and click Add to cart")
+    public void hoverOverSecondProductAndClickAddToCart() {
+        testContext.pageObjectManager.getProductsPage().userHoverTheSecondProductAndClickAddToCart();
+    }
+
+    @And("Click View Cart button")
+    public void clickViewCartButton() {
+        testContext.pageObjectManager.getProductsPage().userclicksTheViewCartButton();
+
+    }
+
+    @Then("Verify both products are added to Cart")
+    public void verifyBothProductsAreAddedToCart() {
+        boolean flag = testContext.pageObjectManager.getProductsPage().userVerifyTheBothProductsAreAddedToCart();
+        Assert.assertTrue(flag);
+    }
+
+    @Then("Verify their prices quantity and total price")
+    public void verifyTheirPricesQuantityAndTotalPrice() {
+        boolean flag = testContext.pageObjectManager.getProductsPage().userVerifyTheirPricesQuantityAndTotalPrice();
+        Assert.assertTrue(flag);
     }
 }
