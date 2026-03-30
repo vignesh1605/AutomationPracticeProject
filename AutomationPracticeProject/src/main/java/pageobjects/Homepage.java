@@ -58,5 +58,8 @@ public class Homepage {
     public void userClicksTheCartButton(){
         driver.findElement(By.xpath("//div[@class='shop-menu pull-right']//descendant::a[@href='/view_cart']")).click();
     }
+    public void userClicksTheViewProductButton(){
+        driver.findElement(By.xpath("//a[@href='/product_details/1']")).click();
+    }
 
 }
