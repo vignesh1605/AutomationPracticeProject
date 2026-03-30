@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.ConfigPropertyReader;
@@ -26,6 +27,15 @@ public class CartPage {
     }
     public boolean userVerifyTheSubscriptionSuccessMessageIsVisible(){
         return driver.findElement(By.id("success-subscribe")).isDisplayed();
+    }
+    public String userVerifyTheCartPageTitle(){
+        return driver.getTitle();
+    }
+    public void userClicksTheProceedToCheckoutButton(){
+        driver.findElement(By.xpath("//section[@id='cart_items']//descendant::a[text()='Proceed To Checkout']")).click();
+    }
+    public void userClicksTheRegister_LoginButton(){
+        driver.findElement(By.xpath("//section[@id='cart_items']//descendant::u[text()='Register / Login']")).click();
     }
 
 }

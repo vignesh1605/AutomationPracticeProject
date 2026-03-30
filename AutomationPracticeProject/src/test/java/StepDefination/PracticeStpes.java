@@ -448,4 +448,58 @@ public class PracticeStpes {
         actualProductQuantity = Integer.parseInt(testContext.pageObjectManager.getProductDetailsPage().userVerifyTheAddedQuantity());
         Assert.assertEquals(expectedProductQuantity, actualProductQuantity);
     }
+
+    @Then("Verify that cart page is displayed")
+    public void verifyThatCartPageIsDisplayed() {
+        String expectedPageTitle = "Automation Exercise - Checkout";
+        String actualPageTitle = testContext.pageObjectManager.getCartPage().userVerifyTheCartPageTitle();
+        Assert.assertEquals(expectedPageTitle, actualPageTitle);
+    }
+
+    @When("Click Proceed To Checkout")
+    public void clickProceedToCheckout() {
+        testContext.pageObjectManager.getCartPage().userClicksTheProceedToCheckoutButton();
+    }
+
+    @And("Click Register_Login button")
+    public void clickRegister_LoginButton() {
+        testContext.pageObjectManager.getCartPage().userClicksTheRegister_LoginButton();
+    }
+
+    @Then("Verify Address Details and Review Your Order")
+    public void verifyAddressDetailsAndReviewYourOrder() {
+        Assert.assertTrue(testContext.pageObjectManager.getCheckoutPage().verifyAddressDetailsAndReviewYourOrder());
+    }
+
+    @And("Enter description in comment text area and click Place Order")
+    public void enterDescriptionInCommentTextAreaAndClickPlaceOrder() {
+        String message = ConfigPropertyReader.getConfigPropertyValues("messageForCheckoutPage");
+        testContext.pageObjectManager.getCheckoutPage().userEntersTheCommentInMessage(message);
+        testContext.pageObjectManager.getCheckoutPage().userClicksThePlaceOrderButton();
+    }
+
+    @And("Enter payment details Name on Card Card Number CVC Expiration date")
+    public void enterPaymentDetailsNameOnCardCardNumberCVCExpirationDate() {
+        String nameOnCard = ConfigPropertyReader.getConfigPropertyValues("nameOnCard");
+        String cardNumber = ConfigPropertyReader.getConfigPropertyValues("cardNumber");
+        String cVC =  ConfigPropertyReader.getConfigPropertyValues("cVC");
+        String monthExpiry = ConfigPropertyReader.getConfigPropertyValues("monthExpiry");
+        String yearExpiry = ConfigPropertyReader.getConfigPropertyValues("yearExpiry");
+        testContext.pageObjectManager.getCheckoutPage().userEntersTheNameOnCard(nameOnCard);
+        testContext.pageObjectManager.getCheckoutPage().userEntersTheCardNumber(cardNumber);
+        testContext.pageObjectManager.getCheckoutPage().userEntersTheCVC(cVC);
+        testContext.pageObjectManager.getCheckoutPage().userEntersTheMonthExpiry(monthExpiry);
+        testContext.pageObjectManager.getCheckoutPage().userEntersTheYearExpiry(yearExpiry);
+    }
+
+    @And("Click Pay and Confirm Order button")
+    public void clickPayAndConfirmOrderButton() {
+        testContext.pageObjectManager.getCheckoutPage().userClicksThePayAndConfirmOrderButton();
+    }
+
+    @Then("Verify success message Your order has been placed successfully")
+    public void verifySuccessMessageYourOrderHasBeenPlacedSuccessfully() {
+        boolean flag = testContext.pageObjectManager.getCheckoutPage().userVerifyTheOrderPlacedSuccessfullyMessage();
+        Assert.assertTrue(flag);
+    }
 }

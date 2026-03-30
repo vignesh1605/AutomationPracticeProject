@@ -12,6 +12,7 @@ public class PageObjectManager {
     public ProductsPage productsPage;
     public CartPage cartPage;
     public ProductDetailsPage productDetailsPage;
+    public CheckoutPage checkoutPage;
 
     public PageObjectManager(WebDriver driver) {
          this.driver = driver;
@@ -48,5 +49,9 @@ public class PageObjectManager {
     public ProductDetailsPage getProductDetailsPage(){
         productDetailsPage = new ProductDetailsPage(driver);
         return productDetailsPage;
+    }
+    public CheckoutPage getCheckoutPage(){
+        checkoutPage = new CheckoutPage(driver);
+        return checkoutPage;
     }
 }
