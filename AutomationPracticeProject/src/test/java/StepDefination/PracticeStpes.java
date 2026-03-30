@@ -410,4 +410,42 @@ public class PracticeStpes {
         boolean flag = testContext.pageObjectManager.getProductsPage().userVerifyTheirPricesQuantityAndTotalPrice();
         Assert.assertTrue(flag);
     }
+
+    @When("Click View Product for any product on home page")
+    public void clickViewProductForAnyProductOnHomePage() {
+        testContext.pageObjectManager.getHomepage().userClicksTheViewProductButton();
+    }
+
+    @Then("Verify product detail is opened")
+    public void verifyProductDetailIsOpened() {
+        String expectedPageTitle = "Automation Exercise - Product Details";
+        String actualPageTitle = testContext.pageObjectManager.getProductDetailsPage().userVerifyTheProductDetailsPageTitle();
+        Assert.assertEquals(expectedPageTitle, actualPageTitle);
+    }
+
+    @When("Increase quantity")
+    public void increaseQuantityTo() {
+        int productQuantity;
+        productQuantity = Integer.parseInt(ConfigPropertyReader.getConfigPropertyValues("productQuantity"));
+        testContext.pageObjectManager.getProductDetailsPage().userIncreaseTheQuantity(productQuantity);
+    }
+
+    @And("Click Add to cart button")
+    public void clickAddToCartButton() {
+        testContext.pageObjectManager.getProductDetailsPage().userClicksTheAddToCartButton();
+    }
+
+    @And("Click View Cart button in Product Details Page")
+    public void clickViewCartButtonInProductDetailsPage() {
+        testContext.pageObjectManager.getProductDetailsPage().userClicksTheViewCartButton();
+    }
+
+    @Then("Verify that product is displayed in cart page with exact quantity")
+    public void verifyThatProductIsDisplayedInCartPageWithExactQuantity() {
+        int expectedProductQuantity;
+        int actualProductQuantity;
+        expectedProductQuantity = Integer.parseInt(ConfigPropertyReader.getConfigPropertyValues("productQuantity"));
+        actualProductQuantity = Integer.parseInt(testContext.pageObjectManager.getProductDetailsPage().userVerifyTheAddedQuantity());
+        Assert.assertEquals(expectedProductQuantity, actualProductQuantity);
+    }
 }

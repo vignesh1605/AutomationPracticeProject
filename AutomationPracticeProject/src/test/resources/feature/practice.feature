@@ -136,3 +136,14 @@ Feature: validating the automation exercise site
       And Click View Cart button
       Then Verify both products are added to Cart
       Then Verify their prices quantity and total price
+
+  @TestCase13 @VerifyProductQuantityInCart  @RegressionTest
+    Scenario: Verify Product Quantity In Cart
+#      Given user navigates to the test environment
+      Then Verify that home page is visible successfully
+      When Click View Product for any product on home page
+      Then Verify product detail is opened
+      When Increase quantity
+      And Click Add to cart button
+      And Click View Cart button in Product Details Page
+      Then Verify that product is displayed in cart page with exact quantity

@@ -11,6 +11,7 @@ public class PageObjectManager {
     public ContactUsPage  contactUsPage;
     public ProductsPage productsPage;
     public CartPage cartPage;
+    public ProductDetailsPage productDetailsPage;
 
     public PageObjectManager(WebDriver driver) {
          this.driver = driver;
@@ -43,5 +44,9 @@ public class PageObjectManager {
     public CartPage getCartPage(){
         cartPage = new CartPage(driver);
         return cartPage;
+    }
+    public ProductDetailsPage getProductDetailsPage(){
+        productDetailsPage = new ProductDetailsPage(driver);
+        return productDetailsPage;
     }
 }
