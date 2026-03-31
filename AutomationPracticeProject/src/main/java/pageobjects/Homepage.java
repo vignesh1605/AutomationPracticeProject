@@ -61,5 +61,22 @@ public class Homepage {
     public void userClicksTheViewProductButton(){
         driver.findElement(By.xpath("//a[@href='/product_details/1']")).click();
     }
-
+    public String userVerifyTheCategoryIsVisible(){
+        return driver.findElement(By.xpath("//div[@class='left-sidebar']//descendant::h2")).getText();
+    }
+    public void userClicksTheProductCategoryMenuButton(){
+        driver.findElement(By.xpath("//div[@id='accordian']//descendant::a[@href='#Women']")).click();
+    }
+    public void userClickOnTopsCategoryLinkUnderWomenCategory(){
+        driver.findElement(By.xpath("//div[@id='Women']//descendant::a[text()='Tops ']")).click();
+    }
+    public String userVerifyThatCategoryPageIsDisplayedAndConfirmTextWOMENTOPSPRODUCTS(){
+        return driver.findElement(By.xpath("//div[@class='features_items']//child::h2")).getText();
+    }
+    public void userClicksOnAnySubCategoryLinkOfCategory(){
+        driver.findElement(By.xpath("//div[@class='brands-name']//descendant::a[text()='Biba']")).click();
+    }
+    public String verifyThatUserIsNavigatedToThatCategoryPage(){
+        return driver.findElement(By.xpath("//div[@class='features_items']//child::h2[@class='title text-center']")).getText();
+    }
 }

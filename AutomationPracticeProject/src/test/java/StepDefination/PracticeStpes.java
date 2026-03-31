@@ -1,6 +1,7 @@
 package StepDefination;
 
 import io.cucumber.java.PendingException;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -509,5 +510,41 @@ public class PracticeStpes {
     public void verifyThatProductIsRemovedFromTheCart() {
         boolean flag = testContext.pageObjectManager.getCartPage().userVerifyTheProductDelete();
         Assert.assertTrue(flag);
+    }
+
+    @Then("Verify that categories are visible on left side bar")
+    public void verifyThatCategoriesAreVisibleOnLeftSideBar() {
+        String expectedText="CATEGORY";
+        String actualText = testContext.pageObjectManager.getHomepage().userVerifyTheCategoryIsVisible();
+        Assert.assertEquals(expectedText, actualText);
+    }
+
+    @When("Click on Women category")
+    public void clickOnWomenCategory() {
+        testContext.pageObjectManager.getHomepage().userClicksTheProductCategoryMenuButton();
+    }
+
+    @And("Click on any category link under Women category for example Dress")
+    public void clickOnAnyCategoryLinkUnderWomenCategoryForExampleDress() {
+        testContext.pageObjectManager.getHomepage().userClickOnTopsCategoryLinkUnderWomenCategory();
+    }
+
+    @Then("Verify that category page is displayed and confirm text WOMEN TOPS PRODUCTS")
+    public void verifyThatCategoryPageIsDisplayedAndConfirmTextWOMENTOPSPRODUCTS() {
+        String expectedText = "WOMEN - TOPS PRODUCTS";
+        String actualText = testContext.pageObjectManager.getHomepage().userVerifyThatCategoryPageIsDisplayedAndConfirmTextWOMENTOPSPRODUCTS();
+        Assert.assertEquals(expectedText, actualText);
+    }
+
+    @When("On left side bar click on any sub category link of category")
+    public void onLeftSideBarClickOnAnySubCategoryLinkOfCategory() {
+        testContext.pageObjectManager.getHomepage().userClicksOnAnySubCategoryLinkOfCategory();
+    }
+
+    @Then("Verify that user is navigated to that category page")
+    public void verifyThatUserIsNavigatedToThatCategoryPage() {
+        String expectedText="BRAND - BIBA PRODUCTS";
+        String actualText = testContext.pageObjectManager.getHomepage().verifyThatUserIsNavigatedToThatCategoryPage();
+        Assert.assertEquals(expectedText, actualText);
     }
 }
