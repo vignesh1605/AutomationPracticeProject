@@ -30,8 +30,8 @@ Feature: validating the automation exercise site
       When user Enter valid email address and valid password
       And user click on login button
       Then Verify that Logged in as username is visible
-#      And Click Delete Account button
-#      Then Verify that ACCOUNT DELETED is visible
+      And Click Delete Account button
+      Then Verify that ACCOUNT DELETED is visible
 
   @TestCase3 @loginUserWithInCorrectEmailAndPassword @RegressionTest
     Scenario: login User With InCorrect Email And Password
@@ -148,7 +148,7 @@ Feature: validating the automation exercise site
       And Click View Cart button in Product Details Page
       Then Verify that product is displayed in cart page with exact quantity
 
-  @TestCase14 @ProductOrder_RegisterWhileCheckout @RegressionTest
+  @TestCase14 @PlaceOrder_RegisterWhileCheckout @RegressionTest
     Scenario: Product Order & Register While Checkout
 #      Given user navigates to the test environment
       Then Verify that home page is visible successfully
@@ -179,3 +179,34 @@ Feature: validating the automation exercise site
 #      When Click Delete Account button
 #      Then Verify that ACCOUNT DELETED is visible
 #      And user clicks the Continue button
+
+  @TestCase15 @PlaceOrder_RegisterBeforeCheckout @RegressionTest
+    Scenario: Product Order_RegisterBeforeCheckout
+#      Given user navigates to the test environment
+      Then Verify that home page is visible successfully
+      When user Click on Signup Login button
+      Then Verify New User Signup is visible
+      When Enter name and email address
+      And click signup button
+      Then Verify that ENTER ACCOUNT INFORMATION is visible
+      When Fill details of Title Name Email Password Date of birth
+      And Select checkbox Sign up for our newsletter
+      And Select checkbox Receive special offers from our partners
+      When Fill details First name Last name Company Address Country State City Zipcode Mobile Number
+      And Click Create Account button
+      Then Verify that ACCOUNT CREATED is visible
+      And Click Continue button
+      Then Verify that Logged in as username is visible
+      When Hover over first product and click Add to cart
+      And Click View Cart button in Product Details Page
+      Then Verify that cart page is displayed
+      When Click Proceed To Checkout
+      Then Verify Address Details and Review Your Order
+      And Enter description in comment text area and click Place Order
+      And Enter payment details Name on Card Card Number CVC Expiration date
+      And Click Pay and Confirm Order button
+      Then Verify success message Your order has been placed successfully
+      When Click Delete Account button
+      Then Verify that ACCOUNT DELETED is visible
+      And user clicks the Continue button
+
