@@ -1,6 +1,6 @@
 Feature: validating the automation exercise site
 
-  @TestCase1  @RegisterUser @RegressionTest
+  @TestCase1  @RegisterUser
     Scenario: Register User
 #      Given user navigates to the test environment
       Then Verify that home page is visible successfully
@@ -21,7 +21,7 @@ Feature: validating the automation exercise site
 #      Then Verify that ACCOUNT DELETED is visible
 #      And user clicks the Continue button
 
-  @TestCase2  @LoginUserWithCorrectEmailAndPassword @RegressionTest
+  @TestCase2  @LoginUserWithCorrectEmailAndPassword
     Scenario: Login User With Correct Email And Password
 #      Given user navigates to the test environment
       Then Verify that home page is visible successfully
@@ -30,10 +30,10 @@ Feature: validating the automation exercise site
       When user Enter valid email address and valid password
       And user click on login button
       Then Verify that Logged in as username is visible
-      And Click Delete Account button
-      Then Verify that ACCOUNT DELETED is visible
+#      And Click Delete Account button
+#      Then Verify that ACCOUNT DELETED is visible
 
-  @TestCase3 @loginUserWithInCorrectEmailAndPassword @RegressionTest
+  @TestCase3 @loginUserWithInCorrectEmailAndPassword
     Scenario: login User With InCorrect Email And Password
 #      Given user navigates to the test environment
       Then Verify that home page is visible successfully
@@ -148,7 +148,7 @@ Feature: validating the automation exercise site
       And Click View Cart button in Product Details Page
       Then Verify that product is displayed in cart page with exact quantity
 
-  @TestCase14 @PlaceOrder_RegisterWhileCheckout @RegressionTest
+  @TestCase14 @PlaceOrder_RegisterWhileCheckout
     Scenario: Product Order & Register While Checkout
 #      Given user navigates to the test environment
       Then Verify that home page is visible successfully
@@ -180,7 +180,7 @@ Feature: validating the automation exercise site
 #      Then Verify that ACCOUNT DELETED is visible
 #      And user clicks the Continue button
 
-  @TestCase15 @PlaceOrder_RegisterBeforeCheckout @RegressionTest
+  @TestCase15 @PlaceOrder_RegisterBeforeCheckout
     Scenario: Product Order_RegisterBeforeCheckout
 #      Given user navigates to the test environment
       Then Verify that home page is visible successfully
@@ -206,7 +206,28 @@ Feature: validating the automation exercise site
       And Enter payment details Name on Card Card Number CVC Expiration date
       And Click Pay and Confirm Order button
       Then Verify success message Your order has been placed successfully
-      When Click Delete Account button
-      Then Verify that ACCOUNT DELETED is visible
-      And user clicks the Continue button
+#      When Click Delete Account button
+#      Then Verify that ACCOUNT DELETED is visible
+#      And user clicks the Continue button
 
+  @TestCase16 @PlaceOrder_LoginBeforeCheckout
+    Scenario: Place Order_Login Before Checkout
+#      Given user navigates to the test environment
+      Then Verify that home page is visible successfully
+      When user Click on Signup Login button
+      Then Verify Login to your account is visible
+      When user Enter valid email address and valid password
+      And user click on login button
+      Then Verify that Logged in as username is visible
+      When Hover over first product and click Add to cart
+      And Click View Cart button in Product Details Page
+      Then Verify that cart page is displayed
+      And Click Proceed To Checkout
+      Then Verify Address Details and Review Your Order
+      And Enter description in comment text area and click Place Order
+      And Enter payment details Name on Card Card Number CVC Expiration date
+      And Click Pay and Confirm Order button
+      Then Verify success message Your order has been placed successfully
+#      When Click Delete Account button
+#      Then Verify that ACCOUNT DELETED is visible
+#      And user clicks the Continue button

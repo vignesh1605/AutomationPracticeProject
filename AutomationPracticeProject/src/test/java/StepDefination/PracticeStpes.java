@@ -212,7 +212,6 @@ public class PracticeStpes {
         String expectedDivText = "GET IN TOUCH";
         String actualDivText = testContext.pageObjectManager.getContactUsPage().getGetInTouchIsVisibleText();
         Assert.assertEquals(expectedDivText, actualDivText);
-
     }
 
     @When("Enter name email subject and message")
@@ -229,14 +228,12 @@ public class PracticeStpes {
     public void uploadFile() {
 
         testContext.pageObjectManager.getContactUsPage().userUploadsTheFile();
-
     }
 
     @And("Click Submit button")
     public void clickSubmitButton() {
 
         testContext.pageObjectManager.getContactUsPage().userClicksTheSubmitButton();
-
     }
 
     @And("Click OK button")
