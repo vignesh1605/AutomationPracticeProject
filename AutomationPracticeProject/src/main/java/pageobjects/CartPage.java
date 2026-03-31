@@ -1,6 +1,5 @@
 package pageobjects;
 
-import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.ConfigPropertyReader;
@@ -36,6 +35,12 @@ public class CartPage {
     }
     public void userClicksTheRegister_LoginButton(){
         driver.findElement(By.xpath("//section[@id='cart_items']//descendant::u[text()='Register / Login']")).click();
+    }
+    public void userClicksTheDeleteProductButton(){
+        driver.findElement(By.xpath("//td[@class='cart_delete']//descendant::a[@data-product-id=1]")).click();
+    }
+    public boolean userVerifyTheProductDelete(){
+       return driver.findElement(By.xpath("//td[@class='cart_delete']//descendant::a[@data-product-id=1]")).isDisplayed();
     }
 
 }
