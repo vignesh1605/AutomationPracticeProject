@@ -231,3 +231,17 @@ Feature: validating the automation exercise site
 #      When Click Delete Account button
 #      Then Verify that ACCOUNT DELETED is visible
 #      And user clicks the Continue button
+
+  @TestCase17 @RemoveProductsFromCart @RegressionTest
+    Scenario: Remove Products From Cart
+#      Given user navigates to the test environment
+      Then Verify that home page is visible successfully
+      When Click on Products button
+      And Hover over first product and click Add to cart
+      And Click Continue Shopping button
+      And Hover over second product and click Add to cart
+      And Click View Cart button
+      Then Verify that cart page is displayed
+      When Click X button corresponding to particular product
+      Then Verify that product is removed from the cart
+

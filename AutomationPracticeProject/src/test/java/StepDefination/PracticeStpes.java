@@ -499,4 +499,15 @@ public class PracticeStpes {
         boolean flag = testContext.pageObjectManager.getCheckoutPage().userVerifyTheOrderPlacedSuccessfullyMessage();
         Assert.assertTrue(flag);
     }
+
+    @When("Click X button corresponding to particular product")
+    public void clickXButtonCorrespondingToParticularProduct() {
+        testContext.pageObjectManager.getCartPage().userClicksTheDeleteProductButton();
+    }
+
+    @Then("Verify that product is removed from the cart")
+    public void verifyThatProductIsRemovedFromTheCart() {
+        boolean flag = testContext.pageObjectManager.getCartPage().userVerifyTheProductDelete();
+        Assert.assertTrue(flag);
+    }
 }
