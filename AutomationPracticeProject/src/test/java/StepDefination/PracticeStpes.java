@@ -547,4 +547,35 @@ public class PracticeStpes {
         String actualText = testContext.pageObjectManager.getHomepage().verifyThatUserIsNavigatedToThatCategoryPage();
         Assert.assertEquals(expectedText, actualText);
     }
+
+    @Then("Verify that Brands are visible on left side bar")
+    public void verifyThatBrandsAreVisibleOnLeftSideBar() {
+        String expectedText="BRANDS";
+        String actualText = testContext.pageObjectManager.getHomepage().userVerifyThatBrandsAreVisibleOnLeftSideBar();
+        Assert.assertEquals(expectedText, actualText);
+    }
+
+    @When("Click on any brand name")
+    public void clickOnAnyBrandName() {
+        testContext.pageObjectManager.getHomepage().userClickOnAnyBrandName();
+    }
+
+    @Then("Verify that user is navigated to brand page and brand products are displayed")
+    public void verifyThatUserIsNavigatedToBrandPageAndBrandProductsAreDisplayed() {
+        String expectedText="BRAND - POLO PRODUCTS";
+        String actualText = testContext.pageObjectManager.getHomepage().userVerifyThatUserIsNavigatedToBrandPageAndBrandProductsAreDisplayed();
+        Assert.assertEquals(expectedText, actualText);
+    }
+
+    @When("On left side bar click on any other brand link")
+    public void onLeftSideBarClickOnAnyOtherBrandLink() {
+        testContext.pageObjectManager.getHomepage().userClicksOnLeftSideBarClickOnAnyOtherBrandLink();
+    }
+
+    @Then("Verify that user is navigated to that brand page and can see products")
+    public void verifyThatUserIsNavigatedToThatBrandPageAndCanSeeProducts() {
+        String expectedText="BRAND - ALLEN SOLLY JUNIOR PRODUCTS";
+        String actualText =testContext.pageObjectManager.getHomepage().userVerifyThatUserIsNavigatedToThatBrandPageAndCanSeeProducts();
+        Assert.assertEquals(expectedText, actualText);
+    }
 }
