@@ -62,7 +62,7 @@ public class Homepage {
         driver.findElement(By.xpath("//a[@href='/product_details/1']")).click();
     }
     public String userVerifyTheCategoryIsVisible(){
-        return driver.findElement(By.xpath("//div[@class='left-sidebar']//descendant::h2")).getText();
+        return driver.findElement(By.xpath("//div[@class='left-sidebar']//descendant::h2[text()='Category']")).getText();
     }
     public void userClicksTheProductCategoryMenuButton(){
         driver.findElement(By.xpath("//div[@id='accordian']//descendant::a[@href='#Women']")).click();
@@ -77,6 +77,21 @@ public class Homepage {
         driver.findElement(By.xpath("//div[@class='brands-name']//descendant::a[text()='Biba']")).click();
     }
     public String verifyThatUserIsNavigatedToThatCategoryPage(){
+        return driver.findElement(By.xpath("//div[@class='features_items']//child::h2[@class='title text-center']")).getText();
+    }
+    public String userVerifyThatBrandsAreVisibleOnLeftSideBar(){
+        return driver.findElement(By.xpath("//div[@class='brands_products']//descendant::h2")).getText();
+    }
+    public void userClickOnAnyBrandName(){
+        driver.findElement(By.xpath("//div[@class='brands_products']//descendant::a[text()='Polo']")).click();
+    }
+    public String userVerifyThatUserIsNavigatedToBrandPageAndBrandProductsAreDisplayed(){
+        return driver.findElement(By.xpath("//div[@class='features_items']//child::h2[@class='title text-center']")).getText();
+    }
+    public void userClicksOnLeftSideBarClickOnAnyOtherBrandLink(){
+        driver.findElement(By.xpath("//div[@class='brands_products']//descendant::a[text()='Allen Solly Junior']")).click();
+    }
+    public String userVerifyThatUserIsNavigatedToThatBrandPageAndCanSeeProducts(){
         return driver.findElement(By.xpath("//div[@class='features_items']//child::h2[@class='title text-center']")).getText();
     }
 }

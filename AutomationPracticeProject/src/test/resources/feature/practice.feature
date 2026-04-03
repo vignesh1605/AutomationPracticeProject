@@ -256,3 +256,14 @@ Feature: validating the automation exercise site
       When On left side bar click on any sub category link of category
       Then Verify that user is navigated to that category page
 
+  @TestCase19 @View_CartBrandProducts @RegressionTest
+    Scenario: View & Cart Brand Products
+#      Given Given user navigates to the test environment
+      Then Verify that home page is visible successfully
+      When Click on Products button
+      Then Verify that Brands are visible on left side bar
+      When Click on any brand name
+      Then Verify that user is navigated to brand page and brand products are displayed
+      When On left side bar click on any other brand link
+      Then Verify that user is navigated to that brand page and can see products
+
